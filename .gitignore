@@ -1,0 +1,7 @@
+*.iml
+*.cmd
+*mvnw
+*.mvn
+/.idea
+/auth-server/target/
+/auth-server/mvnw.cmd

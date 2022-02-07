@@ -1,0 +1,14 @@
+server:
+  port: 8100
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/online_store_dev
+    username: root
+    password: root
+
+jwt:
+  secret: qwertyuiopasdfghjklzxcvbnmqwertyuioh
+  expiration: 86400
+  time:
+    delete-tokens: 60000
