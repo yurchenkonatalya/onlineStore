@@ -12,8 +12,7 @@ import java.util.stream.Collectors;
 @Getter
 public enum UserRoleRef {
     USER(1, "USER"),
-    ADMIN(2, "ADMIN"),
-    GUEST(3, "GUEST");
+    ADMIN(2, "ADMIN");
 
     private Integer id;
     private String name;

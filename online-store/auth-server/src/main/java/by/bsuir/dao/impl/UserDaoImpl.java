@@ -27,4 +27,9 @@ public class UserDaoImpl implements UserDao {
     public Optional<User> findById(Integer id) {
        return userRepo.findById(id);
     }
+
+    @Override
+    public Optional<User> save(User user) {
+        return Optional.of(userRepo.save(user));
+    }
 }

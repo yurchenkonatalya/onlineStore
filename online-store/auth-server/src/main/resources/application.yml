@@ -12,3 +12,8 @@ jwt:
   expiration: 86400
   time:
     delete-tokens: 60000
+logging:
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    path: C:\Users\maxim\Repozinory\onlineStore\online-store\auth-server\src\main\resources\spring.log

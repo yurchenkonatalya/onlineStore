@@ -7,10 +7,12 @@ public class ApiPath {
     public static final String LOGIN ="/login";
     public static final String LOGOUT ="/logout";
     public static final String AUTH = "/auth";
+    public static final String REGISTRATION = "/registration";
 
 
 
     public static final String USER_LOGIN = API + USERS + LOGIN;
     public static final String USER_LOGOUT = API + USERS + LOGOUT;
     public static final String USER_AUTH = API + USERS + AUTH;
+    public static final String USER_REGISTRATION = API + USERS + REGISTRATION;
 }
