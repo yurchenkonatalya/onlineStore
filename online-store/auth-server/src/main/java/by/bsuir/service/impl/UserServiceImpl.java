@@ -7,14 +7,17 @@ import by.bsuir.entity.domain.Token;
 import by.bsuir.entity.domain.User;
 import by.bsuir.entity.dto.AuthDto;
 import by.bsuir.entity.dto.JwtDto;
+import by.bsuir.entity.dto.RegDto;
 import by.bsuir.exception.*;
 import by.bsuir.service.AuthService;
 import by.bsuir.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
@@ -25,13 +28,16 @@ public class UserServiceImpl implements UserService {
     private final UserDao userDao;
     private final RefDao refDao;
     private final TokenDao tokenDao;
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    public UserServiceImpl(AuthService authService, UserDao userDao, RefDao refDao, TokenDao tokenDao){
+    public UserServiceImpl(AuthService authService, UserDao userDao, RefDao refDao, TokenDao tokenDao,
+                           BCryptPasswordEncoder bCryptPasswordEncoder){
         this.authService = authService;
         this.userDao = userDao;
         this.refDao = refDao;
         this.tokenDao = tokenDao;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     @Override
@@ -72,5 +78,33 @@ public class UserServiceImpl implements UserService {
                 .token(token)
                 .endDate(authService.getExpirationTimeByToken(token))
                 .user(value).build()));
+    }
+
+    @Override
+    public void registration(RegDto regDto) {
+        userDao.findByEmail(regDto.getEmail()).ifPresent((user) -> {
+            throw new SuchEmailAlsoRegistredException(HttpStatus.CONFLICT);
+        });
+
+        if(!regDto.getPassword().equals(regDto.getRepeatPassword())){
+            throw new RepeatPasswordIsNotSameException(HttpStatus.FORBIDDEN);
+        }
+
+        User defaultUser = createDefaultUser(regDto);
+        Optional<User> user = userDao.save(defaultUser);
+        if(user.isPresent()){
+            //отправить сообщение на почту
+        }
+    }
+
+    private User createDefaultUser(RegDto regDto){
+        return User.builder()
+                .userEmail(regDto.getEmail())
+                .userHashPass(bCryptPasswordEncoder.encode(regDto.getPassword()))
+                .actualDate(LocalDateTime.now())
+                .userPhone(regDto.getPhoneNumber())
+                .userStatus(refDao.findNonActiveUserStatus())
+                .userRole(refDao.findUserRole())
+                .build();
     }
 }

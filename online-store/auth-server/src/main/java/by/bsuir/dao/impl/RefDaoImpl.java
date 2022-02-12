@@ -44,8 +44,4 @@ public class RefDaoImpl implements RefDao {
         return userRoleRepo.findByRoleName(UserRoleRef.ADMIN.getName());
     }
 
-    @Override
-    public UserRole findGuestUserRole() {
-        return userRoleRepo.findByRoleName(UserRoleRef.GUEST.getName());
-    }
 }
