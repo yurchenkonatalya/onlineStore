@@ -1,20 +1,22 @@
 package by.bsuir.entity.domain;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@Builder
 @ToString
 @EqualsAndHashCode
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "user")
 public class User {
 
@@ -27,6 +29,7 @@ public class User {
 
     @Column(name = "user_email")
     @NotNull
+    @Email
     private String userEmail;
 
     @Column(name = "user_hash_pass")
@@ -39,6 +42,7 @@ public class User {
 
     @Column(name = "user_phone")
     @NotNull
+    @Size(min = 9, max = 9)
     private String userPhone;
 
     @ManyToOne(fetch = FetchType.LAZY)

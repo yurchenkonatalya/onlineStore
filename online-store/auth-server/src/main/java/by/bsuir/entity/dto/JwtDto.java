@@ -8,6 +8,5 @@ import lombok.*;
 @Setter
 @Builder
 public class JwtDto {
-
     private String jwt;
 }

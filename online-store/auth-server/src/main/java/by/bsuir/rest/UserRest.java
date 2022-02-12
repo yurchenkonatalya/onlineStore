@@ -2,6 +2,7 @@ package by.bsuir.rest;
 
 import by.bsuir.entity.dto.JwtDto;
 import by.bsuir.entity.dto.AuthDto;
+import by.bsuir.entity.dto.RegDto;
 import by.bsuir.exception.TokenIsNotValid;
 import by.bsuir.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -24,6 +25,10 @@ public class UserRest {
 
     @PostMapping(USER_LOGIN)
     public JwtDto login(@RequestBody AuthDto authDto){
+        log.info("info");
+        log.error("error");
+        log.warn("warn");
+        log.trace("trace");
         return userService.login(authDto);
     }
 
@@ -38,5 +43,10 @@ public class UserRest {
     @GetMapping(USER_AUTH)
     public JwtDto auth(@RequestHeader(name = AUTHORIZATION, required = false) String token){
         return userService.auth(token);
+    }
+
+    @PostMapping(USER_REGISTRATION)
+    public void registration(@RequestBody RegDto regDto){
+        userService.registration(regDto);
     }
 }

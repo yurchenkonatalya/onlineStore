@@ -11,5 +11,4 @@ public interface RefDao {
     UserStatus findBannedUserStatus();
     UserRole findUserRole();
     UserRole findAdminUserRole();
-    UserRole findGuestUserRole();
 }
