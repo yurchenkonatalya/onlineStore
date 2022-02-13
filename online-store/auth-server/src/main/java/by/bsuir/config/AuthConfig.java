@@ -1,10 +1,12 @@
 package by.bsuir.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.servlet.ViewResolver;
@@ -38,7 +40,7 @@ public class AuthConfig {
     public SpringResourceTemplateResolver templateResolver(){
         SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
         resolver.setApplicationContext(context);
-        resolver.setPrefix("templates/");
+        resolver.setPrefix("classpath:/templates/");
         resolver.setSuffix(".html");
         resolver.setTemplateMode(TemplateMode.HTML);
         return resolver;
@@ -51,6 +53,7 @@ public class AuthConfig {
         return templateEngine;
     }
 
+    @Bean
     public ThymeleafViewResolver thymeleafViewResolver(){
         ThymeleafViewResolver thymeleafViewResolver = new ThymeleafViewResolver();
         thymeleafViewResolver.setTemplateEngine(templateEngine());

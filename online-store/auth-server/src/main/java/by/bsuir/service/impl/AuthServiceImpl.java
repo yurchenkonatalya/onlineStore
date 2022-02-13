@@ -18,7 +18,7 @@ import java.util.Optional;
 public class AuthServiceImpl implements AuthService {
 
     private final JwtService jwtService;
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+
     private final TokenDao tokenDao;
 
     @Value("${jwt.expiration}")
@@ -28,7 +28,6 @@ public class AuthServiceImpl implements AuthService {
     public AuthServiceImpl(JwtService jwtService, BCryptPasswordEncoder bCryptPasswordEncoder,
                            TokenDao tokenDao){
         this.jwtService = jwtService;
-        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
         this.tokenDao = tokenDao;
     }
 
@@ -40,10 +39,7 @@ public class AuthServiceImpl implements AuthService {
         return jwtService.generateToken(user.getUserId(), claims, Long.parseLong(expiration));
     }
 
-    @Override
-    public boolean checkPassword(String userPass, String databasePass) {
-        return bCryptPasswordEncoder.matches(userPass, databasePass);
-    }
+
 
     @Override
     public boolean isValidToken(String token) {
