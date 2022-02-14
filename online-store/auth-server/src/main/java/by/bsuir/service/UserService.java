@@ -9,4 +9,5 @@ public interface UserService {
     JwtDto auth(String token);
     void logout(String token);
     void registration(RegDto regDto);
+    void activateEmail(String key);
 }

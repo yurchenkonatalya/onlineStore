@@ -20,6 +20,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -32,6 +34,7 @@ public class UserServiceImpl implements UserService {
     private final UserDao userDao;
     private final RefDao refDao;
     private final TokenDao tokenDao;
+    private Map<String, String> nonActiveEmails;
 
     @Autowired
     public UserServiceImpl(AuthService authService, EmailService emailService, CryptoServiceImpl cryptoService,
@@ -42,6 +45,7 @@ public class UserServiceImpl implements UserService {
         this.userDao = userDao;
         this.refDao = refDao;
         this.tokenDao = tokenDao;
+        nonActiveEmails = new HashMap<>();
     }
 
     @Override
@@ -97,7 +101,25 @@ public class UserServiceImpl implements UserService {
 
         User defaultUser = createNonActiveUser(regDto);
         Optional<User> user = userDao.save(defaultUser);
-        user.ifPresent(value -> emailService.sendActivationKey(new ActivationMail(value.getUserEmail(), cryptoService.createActivationKey(value.getUserEmail()))));
+        if(user.isPresent()){
+            String key = cryptoService.createActivationKey(user.get().getUserEmail());
+            nonActiveEmails.put(key, user.get().getUserEmail());
+            emailService.sendHtml(new ActivationMail(user.get().getUserEmail(), key));
+        }
+    }
+
+    @Override
+    public void activateEmail(String key) {
+        if(!nonActiveEmails.containsKey(key) || !nonActiveEmails.get(key).equals(cryptoService.getEmailFromActivationKey(key))){
+            throw new ActivationKeyIsNotExist(HttpStatus.FORBIDDEN);
+        }
+        String email = nonActiveEmails.remove(key);
+        Optional<User> user = userDao.findByEmail(email);
+        user.ifPresent(value -> {
+            value.setUserStatus(refDao.findActiveUserStatus());
+            userDao.save(value);
+        });
+
     }
 
     private User createNonActiveUser(RegDto regDto){

@@ -25,20 +25,13 @@ public class EmailService {
     @Value("${spring.mail.username}")
     private String sender;
 
-    Map<String, String> nonActiveEmails;
 
     @Autowired
     public EmailService(JavaMailSender javaMailSender, SpringTemplateEngine templateEngine){
         this.javaMailSender = javaMailSender;
         this.templateEngine = templateEngine;
-        nonActiveEmails = new HashMap<>();
     }
 
-    public void sendActivationKey(Mail mail){
-        ActivationMail activationMail = (ActivationMail) mail;
-        sendHtml(activationMail);
-        nonActiveEmails.put(activationMail.getKey(), mail.getReceiver());
-    }
 
     public void sendHtml(Mail mail) {
         try {

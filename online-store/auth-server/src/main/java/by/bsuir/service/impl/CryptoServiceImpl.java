@@ -31,4 +31,9 @@ public class CryptoServiceImpl implements CryptoService {
     public String createActivationKey(String email) {
         return Base64.getEncoder().encodeToString(email.getBytes(StandardCharsets.UTF_8));
     }
+
+    @Override
+    public String getEmailFromActivationKey(String key) {
+        return new String(Base64.getDecoder().decode(key));
+    }
 }

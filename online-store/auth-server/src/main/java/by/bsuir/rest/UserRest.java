@@ -49,4 +49,9 @@ public class UserRest {
     public void registration(@RequestBody RegDto regDto){
         userService.registration(regDto);
     }
+
+    @GetMapping(EMAIL_ACTIVATION)
+    public void activation(@PathVariable String key){
+        userService.activateEmail(key);
+    }
 }
