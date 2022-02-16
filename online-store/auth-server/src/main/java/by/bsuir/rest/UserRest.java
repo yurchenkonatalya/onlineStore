@@ -8,6 +8,10 @@ import by.bsuir.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import static by.bsuir.constant.ApiPath.*;
@@ -17,18 +21,18 @@ import static by.bsuir.constant.ApiPath.*;
 public class UserRest {
 
     private final UserService userService;
+    private final AuthenticationManager authenticationManager;
 
     @Autowired
-    public UserRest(UserService userService){
+    public UserRest(UserService userService,
+                    AuthenticationManager authenticationManager){
         this.userService = userService;
+        this.authenticationManager = authenticationManager;
     }
 
     @PostMapping(USER_LOGIN)
     public JwtDto login(@RequestBody AuthDto authDto){
-        log.info("info");
-        log.error("error");
-        log.warn("warn");
-        log.trace("trace");
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authDto.getEmail(), authDto.getPassword()));
         return userService.login(authDto);
     }
 
