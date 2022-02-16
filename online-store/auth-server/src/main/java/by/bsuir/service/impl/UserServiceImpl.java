@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
     private final UserDao userDao;
     private final RefDao refDao;
     private final TokenDao tokenDao;
-    private Map<String, String> nonActiveEmails;
+    private final Map<String, String> nonActiveEmails;
 
     @Autowired
     public UserServiceImpl(AuthService authService, EmailService emailService, CryptoServiceImpl cryptoService,
@@ -51,18 +51,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public JwtDto login(AuthDto authDto) {
         User user = userDao.findByEmail(authDto.getEmail()).orElseThrow(() -> new UserIsNotRegisteredException(HttpStatus.UNAUTHORIZED));
-        if(!cryptoService.checkPassword(authDto.getPassword(), user.getUserHashPass())){
-            throw new IncorrectPasswordException(HttpStatus.UNAUTHORIZED);
-        }
-
-        if(user.getUserStatus().equals(refDao.findNonActiveUserStatus())){
-            throw new NonActiveAccountException(HttpStatus.FORBIDDEN);
-        }
-
-        if(user.getUserStatus().equals(refDao.findBannedUserStatus())){
-            throw new AccountIsBannedException(HttpStatus.FORBIDDEN);
-        }
-
         return JwtDto.builder()
                 .jwt(authService.generateJwt(user))
                 .build();
@@ -70,9 +58,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public JwtDto auth(String token) {
-        if(!authService.isValidToken(token)){
-            throw new TokenIsNotValid(HttpStatus.FORBIDDEN);
-        }
         Optional<User> user = userDao.findById(authService.getUserIdByToken(token));
         return JwtDto.builder()
                 .jwt(authService.generateJwt(user.get()))
@@ -119,7 +104,6 @@ public class UserServiceImpl implements UserService {
             value.setUserStatus(refDao.findActiveUserStatus());
             userDao.save(value);
         });
-
     }
 
     private User createNonActiveUser(RegDto regDto){

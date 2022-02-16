@@ -11,8 +11,8 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @Getter
 public enum UserRoleRef {
-    USER(1, "USER"),
-    ADMIN(2, "ADMIN");
+    USER(1, "ROLE_USER"),
+    ADMIN(2, "ROLE_ADMIN");
 
     private Integer id;
     private String name;

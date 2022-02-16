@@ -17,7 +17,7 @@ public class ExpirationTokenExecutor {
     }
 
     @Transactional
-    @Scheduled(fixedDelayString = "${jwt.time.delete-tokens}")
+  //  @Scheduled(fixedDelayString = "${jwt.time.delete-tokens}")
     public void deleteExpirationToken(){
         log.info("start remove");
         tokenDao.removeExpirationTokens();
