@@ -3,6 +3,7 @@ package by.bsuir.dao;
 import by.bsuir.entity.domain.User;
 import by.bsuir.entity.domain.UserStatus;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface UserDao {

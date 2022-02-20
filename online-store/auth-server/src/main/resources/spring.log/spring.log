@@ -4837,3 +4837,1147 @@ Security filter chain: [
 2022-02-20 17:42:02 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-02-20 17:42:02 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2022-02-20 17:42:02 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-02-20 17:46:01 [main] INFO  by.bsuir.AuthServerApplication - Starting AuthServerApplication using Java 11 on DESKTOP-UILBNBG with PID 21352 (C:\Users\maxim\Repozinory\onlineStore\online-store\auth-server\target\classes started by maxim in C:\Users\maxim\Repozinory\onlineStore\online-store)
+2022-02-20 17:46:01 [main] INFO  by.bsuir.AuthServerApplication - No active profile set, falling back to default profiles: default
+2022-02-20 17:46:02 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-02-20 17:46:02 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 62 ms. Found 4 JPA repository interfaces.
+2022-02-20 17:46:02 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8100 (http)
+2022-02-20 17:46:02 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2022-02-20 17:46:02 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-02-20 17:46:02 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-02-20 17:46:02 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1098 ms
+2022-02-20 17:46:02 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-02-20 17:46:02 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-02-20 17:46:02 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-02-20 17:46:02 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.4.Final
+2022-02-20 17:46:03 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-02-20 17:46:03 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-02-20 17:46:03 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-02-20 17:46:03 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-02-20 17:46:03 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-02-20 17:46:04 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3085befb, org.springframework.security.web.context.SecurityContextPersistenceFilter@7fb9a83c, org.springframework.security.web.header.HeaderWriterFilter@7de43652, org.springframework.security.web.authentication.logout.LogoutFilter@641cea11, by.bsuir.security.JwtFilter@2cd52eda, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5216532a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@74e175c7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@62264d4f, org.springframework.security.web.session.SessionManagementFilter@3dc7c5fd, org.springframework.security.web.access.ExceptionTranslationFilter@6e0f259e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@125a8ab6]
+2022-02-20 17:46:04 [main] WARN  o.s.s.c.a.web.builders.WebSecurity - 
+
+********************************************************************
+**********        Security debugging is enabled.       *************
+**********    This may include sensitive information.  *************
+**********      Do not use in a production system!     *************
+********************************************************************
+
+
+2022-02-20 17:46:04 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8100 (http) with context path ''
+2022-02-20 17:46:04 [main] INFO  by.bsuir.AuthServerApplication - Started AuthServerApplication in 3.259 seconds (JVM running for 4.113)
+2022-02-20 17:46:10 [http-nio-8100-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-02-20 17:46:10 [http-nio-8100-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-02-20 17:46:10 [http-nio-8100-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2022-02-20 17:46:10 [http-nio-8100-exec-1] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for POST '/api/users/registration':
+
+org.apache.catalina.connector.RequestFacade@29f33a71
+
+servletPath:/api/users/registration
+pathInfo:null
+headers: 
+content-type: application/json
+user-agent: PostmanRuntime/7.28.0
+accept: */*
+postman-token: 82551296-e4e9-4fee-b548-d92e7548c2e9
+host: localhost:8100
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+content-length: 129
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-20 17:46:10 [http-nio-8100-exec-1] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for POST '/error':
+
+org.apache.catalina.core.ApplicationHttpRequest@1cc42e73
+
+servletPath:/error
+pathInfo:null
+headers: 
+content-type: application/json
+user-agent: PostmanRuntime/7.28.0
+accept: */*
+postman-token: 82551296-e4e9-4fee-b548-d92e7548c2e9
+host: localhost:8100
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+content-length: 129
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-20 17:46:21 [http-nio-8100-exec-3] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for POST '/api/users/registration':
+
+org.apache.catalina.connector.RequestFacade@29f33a71
+
+servletPath:/api/users/registration
+pathInfo:null
+headers: 
+content-type: application/json
+user-agent: PostmanRuntime/7.28.0
+accept: */*
+postman-token: aa01627a-9042-426f-8ef4-41e36f096fe1
+host: localhost:8100
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+content-length: 129
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-20 17:46:21 [http-nio-8100-exec-3] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for POST '/error':
+
+org.apache.catalina.core.ApplicationHttpRequest@2d7ed44b
+
+servletPath:/error
+pathInfo:null
+headers: 
+content-type: application/json
+user-agent: PostmanRuntime/7.28.0
+accept: */*
+postman-token: aa01627a-9042-426f-8ef4-41e36f096fe1
+host: localhost:8100
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+content-length: 129
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-20 17:55:54 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-02-20 17:55:54 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-02-20 17:55:54 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-02-20 17:55:59 [main] INFO  by.bsuir.AuthServerApplication - Starting AuthServerApplication using Java 11 on DESKTOP-UILBNBG with PID 11984 (C:\Users\maxim\Repozinory\onlineStore\online-store\auth-server\target\classes started by maxim in C:\Users\maxim\Repozinory\onlineStore\online-store)
+2022-02-20 17:55:59 [main] INFO  by.bsuir.AuthServerApplication - No active profile set, falling back to default profiles: default
+2022-02-20 17:55:59 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-02-20 17:55:59 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 60 ms. Found 4 JPA repository interfaces.
+2022-02-20 17:56:00 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8100 (http)
+2022-02-20 17:56:00 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2022-02-20 17:56:00 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-02-20 17:56:00 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-02-20 17:56:00 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1103 ms
+2022-02-20 17:56:00 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-02-20 17:56:00 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-02-20 17:56:00 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-02-20 17:56:00 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.4.Final
+2022-02-20 17:56:00 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-02-20 17:56:00 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-02-20 17:56:01 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-02-20 17:56:01 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-02-20 17:56:01 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-02-20 17:56:01 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3085befb, org.springframework.security.web.context.SecurityContextPersistenceFilter@7fb9a83c, org.springframework.security.web.header.HeaderWriterFilter@7de43652, org.springframework.security.web.authentication.logout.LogoutFilter@641cea11, by.bsuir.security.JwtFilter@2cd52eda, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5216532a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@74e175c7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@62264d4f, org.springframework.security.web.session.SessionManagementFilter@3dc7c5fd, org.springframework.security.web.access.ExceptionTranslationFilter@6e0f259e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@125a8ab6]
+2022-02-20 17:56:01 [main] WARN  o.s.s.c.a.web.builders.WebSecurity - 
+
+********************************************************************
+**********        Security debugging is enabled.       *************
+**********    This may include sensitive information.  *************
+**********      Do not use in a production system!     *************
+********************************************************************
+
+
+2022-02-20 17:56:02 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8100 (http) with context path ''
+2022-02-20 17:56:02 [main] INFO  by.bsuir.AuthServerApplication - Started AuthServerApplication in 3.313 seconds (JVM running for 4.17)
+2022-02-20 17:56:08 [http-nio-8100-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-02-20 17:56:08 [http-nio-8100-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-02-20 17:56:08 [http-nio-8100-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2022-02-20 17:56:08 [http-nio-8100-exec-1] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for POST '/api/users/login/google':
+
+org.apache.catalina.connector.RequestFacade@30e6e623
+
+servletPath:/api/users/login/google
+pathInfo:null
+headers: 
+content-type: application/json
+user-agent: PostmanRuntime/7.28.0
+accept: */*
+postman-token: acb2c4d2-1338-4acf-9037-bb64941bf1f3
+host: localhost:8100
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+content-length: 193
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-20 17:56:18 [http-nio-8100-exec-3] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for POST '/api/users/login':
+
+org.apache.catalina.connector.RequestFacade@30e6e623
+
+servletPath:/api/users/login
+pathInfo:null
+headers: 
+content-type: application/json
+user-agent: PostmanRuntime/7.28.0
+accept: */*
+postman-token: 53e2bd8a-f5b7-4f9e-aff7-cf955be22745
+host: localhost:8100
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+content-length: 66
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-20 17:56:18 [http-nio-8100-exec-3] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for POST '/error':
+
+org.apache.catalina.core.ApplicationHttpRequest@76ad0f0e
+
+servletPath:/error
+pathInfo:null
+headers: 
+content-type: application/json
+user-agent: PostmanRuntime/7.28.0
+accept: */*
+postman-token: 53e2bd8a-f5b7-4f9e-aff7-cf955be22745
+host: localhost:8100
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+content-length: 66
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-20 17:56:22 [http-nio-8100-exec-4] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for POST '/api/users/login':
+
+org.apache.catalina.connector.RequestFacade@30e6e623
+
+servletPath:/api/users/login
+pathInfo:null
+headers: 
+content-type: application/json
+user-agent: PostmanRuntime/7.28.0
+accept: */*
+postman-token: 7b2e0d1b-3b9f-4d8b-a6f5-7ab80c963a9f
+host: localhost:8100
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+content-length: 66
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-20 17:56:22 [http-nio-8100-exec-4] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for POST '/error':
+
+org.apache.catalina.core.ApplicationHttpRequest@8cb5a80
+
+servletPath:/error
+pathInfo:null
+headers: 
+content-type: application/json
+user-agent: PostmanRuntime/7.28.0
+accept: */*
+postman-token: 7b2e0d1b-3b9f-4d8b-a6f5-7ab80c963a9f
+host: localhost:8100
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+content-length: 66
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-20 17:56:31 [http-nio-8100-exec-5] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for POST '/api/users/registration':
+
+org.apache.catalina.connector.RequestFacade@30e6e623
+
+servletPath:/api/users/registration
+pathInfo:null
+headers: 
+content-type: application/json
+user-agent: PostmanRuntime/7.28.0
+accept: */*
+postman-token: eb6ba1f8-96a3-4eb0-9e6b-ca5e5a820430
+host: localhost:8100
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+content-length: 129
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-20 17:56:41 [http-nio-8100-exec-6] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for POST '/api/users/login':
+
+org.apache.catalina.connector.RequestFacade@30e6e623
+
+servletPath:/api/users/login
+pathInfo:null
+headers: 
+content-type: application/json
+user-agent: PostmanRuntime/7.28.0
+accept: */*
+postman-token: 4449b05d-0b7c-443f-8448-49cef733796a
+host: localhost:8100
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+content-length: 66
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-20 17:56:41 [http-nio-8100-exec-6] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for POST '/error':
+
+org.apache.catalina.core.ApplicationHttpRequest@eeeb059
+
+servletPath:/error
+pathInfo:null
+headers: 
+content-type: application/json
+user-agent: PostmanRuntime/7.28.0
+accept: */*
+postman-token: 4449b05d-0b7c-443f-8448-49cef733796a
+host: localhost:8100
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+content-length: 66
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-20 17:56:51 [http-nio-8100-exec-7] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for POST '/api/users/registration':
+
+org.apache.catalina.connector.RequestFacade@30e6e623
+
+servletPath:/api/users/registration
+pathInfo:null
+headers: 
+content-type: application/json
+user-agent: PostmanRuntime/7.28.0
+accept: */*
+postman-token: 1f6d2ae5-72a7-4ffa-943e-c782ea2a5377
+host: localhost:8100
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+content-length: 129
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-20 17:56:51 [http-nio-8100-exec-7] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for POST '/error':
+
+org.apache.catalina.core.ApplicationHttpRequest@35c4fe5c
+
+servletPath:/error
+pathInfo:null
+headers: 
+content-type: application/json
+user-agent: PostmanRuntime/7.28.0
+accept: */*
+postman-token: 1f6d2ae5-72a7-4ffa-943e-c782ea2a5377
+host: localhost:8100
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+content-length: 129
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-20 17:56:57 [http-nio-8100-exec-8] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for POST '/api/users/login':
+
+org.apache.catalina.connector.RequestFacade@30e6e623
+
+servletPath:/api/users/login
+pathInfo:null
+headers: 
+content-type: application/json
+user-agent: PostmanRuntime/7.28.0
+accept: */*
+postman-token: d62ecc37-8e27-40f2-bdf7-ed8ac0fc3065
+host: localhost:8100
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+content-length: 66
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-20 17:56:58 [http-nio-8100-exec-8] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for POST '/error':
+
+org.apache.catalina.core.ApplicationHttpRequest@55f088b3
+
+servletPath:/error
+pathInfo:null
+headers: 
+content-type: application/json
+user-agent: PostmanRuntime/7.28.0
+accept: */*
+postman-token: d62ecc37-8e27-40f2-bdf7-ed8ac0fc3065
+host: localhost:8100
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+content-length: 66
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-20 17:57:17 [http-nio-8100-exec-9] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for GET '/api/users/activation/bWF4aW1hYTIwMDFAZ21haWwuY29t':
+
+org.apache.catalina.connector.RequestFacade@30e6e623
+
+servletPath:/api/users/activation/bWF4aW1hYTIwMDFAZ21haWwuY29t
+pathInfo:null
+headers: 
+host: localhost:8100
+connection: keep-alive
+upgrade-insecure-requests: 1
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.174 YaBrowser/22.1.3.848 Yowser/2.5 Safari/537.36
+accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+sec-fetch-site: cross-site
+sec-fetch-mode: navigate
+sec-fetch-user: ?1
+sec-fetch-dest: document
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="96", "Yandex";v="22"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+accept-encoding: gzip, deflate, br
+accept-language: ru,en;q=0.9
+cookie: G_AUTHUSER_H=0
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-20 17:57:18 [http-nio-8100-exec-10] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for GET '/favicon.ico':
+
+org.apache.catalina.connector.RequestFacade@30e6e623
+
+servletPath:/favicon.ico
+pathInfo:null
+headers: 
+host: localhost:8100
+connection: keep-alive
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="96", "Yandex";v="22"
+sec-ch-ua-mobile: ?0
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.174 YaBrowser/22.1.3.848 Yowser/2.5 Safari/537.36
+sec-ch-ua-platform: "Windows"
+accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+sec-fetch-site: same-origin
+sec-fetch-mode: no-cors
+sec-fetch-dest: image
+referer: http://localhost:8100/api/users/activation/bWF4aW1hYTIwMDFAZ21haWwuY29t
+accept-encoding: gzip, deflate, br
+accept-language: ru,en;q=0.9
+cookie: Webstorm-94253bfd=148e4188-9fc1-4b2d-8d4b-ebe468d6cb56; G_AUTHUSER_H=0
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-20 17:57:18 [http-nio-8100-exec-10] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for GET '/error':
+
+org.apache.catalina.core.ApplicationHttpRequest@6fb189c3
+
+servletPath:/error
+pathInfo:null
+headers: 
+host: localhost:8100
+connection: keep-alive
+sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="96", "Yandex";v="22"
+sec-ch-ua-mobile: ?0
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.174 YaBrowser/22.1.3.848 Yowser/2.5 Safari/537.36
+sec-ch-ua-platform: "Windows"
+accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+sec-fetch-site: same-origin
+sec-fetch-mode: no-cors
+sec-fetch-dest: image
+referer: http://localhost:8100/api/users/activation/bWF4aW1hYTIwMDFAZ21haWwuY29t
+accept-encoding: gzip, deflate, br
+accept-language: ru,en;q=0.9
+cookie: Webstorm-94253bfd=148e4188-9fc1-4b2d-8d4b-ebe468d6cb56; G_AUTHUSER_H=0
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-20 17:57:24 [http-nio-8100-exec-2] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for POST '/api/users/registration':
+
+org.apache.catalina.connector.RequestFacade@30e6e623
+
+servletPath:/api/users/registration
+pathInfo:null
+headers: 
+content-type: application/json
+user-agent: PostmanRuntime/7.28.0
+accept: */*
+postman-token: 84d896ee-5b26-4b3b-acc3-54605258376d
+host: localhost:8100
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+content-length: 129
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-20 17:57:24 [http-nio-8100-exec-2] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for POST '/error':
+
+org.apache.catalina.core.ApplicationHttpRequest@5edc9da6
+
+servletPath:/error
+pathInfo:null
+headers: 
+content-type: application/json
+user-agent: PostmanRuntime/7.28.0
+accept: */*
+postman-token: 84d896ee-5b26-4b3b-acc3-54605258376d
+host: localhost:8100
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+content-length: 129
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-20 17:57:26 [http-nio-8100-exec-1] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for POST '/api/users/login':
+
+org.apache.catalina.connector.RequestFacade@30e6e623
+
+servletPath:/api/users/login
+pathInfo:null
+headers: 
+content-type: application/json
+user-agent: PostmanRuntime/7.28.0
+accept: */*
+postman-token: 593371c5-ccab-4cb7-a422-59336db360df
+host: localhost:8100
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+content-length: 66
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-20 17:57:28 [http-nio-8100-exec-3] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for POST '/api/users/login/google':
+
+org.apache.catalina.connector.RequestFacade@30e6e623
+
+servletPath:/api/users/login/google
+pathInfo:null
+headers: 
+content-type: application/json
+user-agent: PostmanRuntime/7.28.0
+accept: */*
+postman-token: 909511f0-ed42-4e4e-8ff6-6b59809fc0ec
+host: localhost:8100
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+content-length: 193
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-20 17:57:29 [http-nio-8100-exec-4] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for POST '/api/users/login/google':
+
+org.apache.catalina.connector.RequestFacade@30e6e623
+
+servletPath:/api/users/login/google
+pathInfo:null
+headers: 
+content-type: application/json
+user-agent: PostmanRuntime/7.28.0
+accept: */*
+postman-token: bda00a6f-b67e-4424-9804-be4c9c5a60c3
+host: localhost:8100
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+content-length: 193
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-20 17:57:31 [http-nio-8100-exec-5] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for POST '/api/users/login':
+
+org.apache.catalina.connector.RequestFacade@30e6e623
+
+servletPath:/api/users/login
+pathInfo:null
+headers: 
+content-type: application/json
+user-agent: PostmanRuntime/7.28.0
+accept: */*
+postman-token: 459e9daa-e526-4541-b2fe-473409734436
+host: localhost:8100
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+content-length: 66
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-20 17:57:32 [http-nio-8100-exec-6] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for POST '/api/users/login':
+
+org.apache.catalina.connector.RequestFacade@30e6e623
+
+servletPath:/api/users/login
+pathInfo:null
+headers: 
+content-type: application/json
+user-agent: PostmanRuntime/7.28.0
+accept: */*
+postman-token: 3aba53f8-687b-4a1d-bc29-8b96cd4a9c3d
+host: localhost:8100
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+content-length: 66
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-20 17:57:32 [http-nio-8100-exec-7] INFO  Spring Security Debugger - 
+
+************************************************************
+
+Request received for POST '/api/users/login':
+
+org.apache.catalina.connector.RequestFacade@30e6e623
+
+servletPath:/api/users/login
+pathInfo:null
+headers: 
+content-type: application/json
+user-agent: PostmanRuntime/7.28.0
+accept: */*
+postman-token: d10d907c-ede5-4d36-aeae-95fbb3da2893
+host: localhost:8100
+accept-encoding: gzip, deflate, br
+connection: keep-alive
+content-length: 66
+
+
+Security filter chain: [
+  WebAsyncManagerIntegrationFilter
+  SecurityContextPersistenceFilter
+  HeaderWriterFilter
+  LogoutFilter
+  JwtFilter
+  RequestCacheAwareFilter
+  SecurityContextHolderAwareRequestFilter
+  AnonymousAuthenticationFilter
+  SessionManagementFilter
+  ExceptionTranslationFilter
+  FilterSecurityInterceptor
+]
+
+
+************************************************************
+
+
+2022-02-20 17:57:36 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-02-20 17:57:36 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-02-20 17:57:36 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

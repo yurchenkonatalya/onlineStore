@@ -97,7 +97,11 @@ public class UserServiceImpl implements UserService {
     @Transactional
     @Override
     public void registration(RegDto regDto) {
-        userDao.findByEmail(regDto.getEmail()).ifPresent((user) -> {
+        userDao.findByEmailAndStatus(regDto.getEmail(), refDao.findNonActiveUserStatus()).ifPresent((user) -> {
+            throw new SuchEmailAlsoRegistredException(HttpStatus.CONFLICT);
+        });
+
+        userDao.findByEmailAndStatus(regDto.getEmail(), refDao.findActiveUserStatus()).ifPresent((user) -> {
             throw new SuchEmailAlsoRegistredException(HttpStatus.CONFLICT);
         });
 
@@ -119,11 +123,12 @@ public class UserServiceImpl implements UserService {
         if(!nonActiveEmails.containsKey(key) || !nonActiveEmails.get(key).equals(cryptoService.getEmailFromActivationKey(key))){
             throw new ActivationKeyIsNotExist(HttpStatus.FORBIDDEN);
         }
-        String email = nonActiveEmails.remove(key);
-        Optional<User> user = userDao.findByEmail(email);
+        String email = nonActiveEmails.get(key);
+        Optional<User> user = userDao.findByEmailAndStatus(email, refDao.findNonActiveUserStatus());
         user.ifPresent(value -> {
             value.setUserStatus(refDao.findActiveUserStatus());
             userDao.save(value);
+            nonActiveEmails.remove(key);
         });
     }
 
