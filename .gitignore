@@ -3,6 +3,7 @@
 *mvnw
 *.mvn
 *.cmd
+*.log
 .idea
 target
 

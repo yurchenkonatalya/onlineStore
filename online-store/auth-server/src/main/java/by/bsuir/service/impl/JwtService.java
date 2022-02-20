@@ -43,6 +43,10 @@ public class JwtService {
         return getBody(token).getSubject();
     }
 
+    public String getUsername(String token){
+        return (String) getBody(token).get("email");
+    }
+
     public Date getExpirationDate(String token){
         return getBody(token).getExpiration();
     }

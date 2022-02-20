@@ -15,10 +15,11 @@ public class RefDaoImpl implements RefDao {
     private final UserStatusRepo userStatusRepo;
     private final UserRoleRepo userRoleRepo;
 
-    public RefDaoImpl(UserStatusRepo userStatusRepo, UserRoleRepo userRoleRepo){
+    public RefDaoImpl(UserStatusRepo userStatusRepo, UserRoleRepo userRoleRepo) {
         this.userStatusRepo = userStatusRepo;
         this.userRoleRepo = userRoleRepo;
     }
+
     @Override
     public UserStatus findNonActiveUserStatus() {
         return userStatusRepo.findByStatusName(UserStatusRef.NON_ACTIVE.getName());

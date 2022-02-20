@@ -45,11 +45,11 @@ public class User {
     @Size(min = 9, max = 9)
     private String userPhone;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id", referencedColumnName = "role_id")
     private UserRole userRole;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_status_id", referencedColumnName = "user_status_id")
     private UserStatus userStatus;
 
