@@ -2,6 +2,7 @@ package by.bsuir.dao.impl;
 
 import by.bsuir.dao.UserDao;
 import by.bsuir.entity.domain.User;
+import by.bsuir.entity.domain.UserStatus;
 import by.bsuir.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -21,6 +22,11 @@ public class UserDaoImpl implements UserDao {
     @Override
     public Optional<User> findByEmail(String email) {
         return userRepo.findByUserEmail(email);
+    }
+
+    @Override
+    public Optional<User> findByEmailAndStatus(String email, UserStatus userStatus) {
+        return userRepo.findByUserEmailAndUserStatus(email, userStatus);
     }
 
     @Override

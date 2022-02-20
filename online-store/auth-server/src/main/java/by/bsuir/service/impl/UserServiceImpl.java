@@ -6,9 +6,12 @@ import by.bsuir.dao.UserDao;
 import by.bsuir.entity.domain.Token;
 import by.bsuir.entity.domain.User;
 import by.bsuir.entity.dto.AuthDto;
+import by.bsuir.entity.dto.GoogleDto;
 import by.bsuir.entity.dto.JwtDto;
 import by.bsuir.entity.dto.RegDto;
+import by.bsuir.entity.dto.api.UserGoogleResponse;
 import by.bsuir.exception.*;
+import by.bsuir.service.ApiService;
 import by.bsuir.service.AuthService;
 import by.bsuir.service.UserService;
 import by.bsuir.service.mail.ActivationMail;
@@ -19,6 +22,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -31,6 +35,7 @@ public class UserServiceImpl implements UserService {
     private final AuthService authService;
     private final EmailService emailService;
     private final CryptoServiceImpl cryptoService;
+    private final ApiService apiService;
     private final UserDao userDao;
     private final RefDao refDao;
     private final TokenDao tokenDao;
@@ -38,10 +43,11 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     public UserServiceImpl(AuthService authService, EmailService emailService, CryptoServiceImpl cryptoService,
-                           UserDao userDao, RefDao refDao, TokenDao tokenDao){
+                           ApiService apiService, UserDao userDao, RefDao refDao, TokenDao tokenDao){
         this.authService = authService;
         this.emailService = emailService;
         this.cryptoService = cryptoService;
+        this.apiService = apiService;
         this.userDao = userDao;
         this.refDao = refDao;
         this.tokenDao = tokenDao;
@@ -50,10 +56,25 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public JwtDto login(AuthDto authDto) {
-        User user = userDao.findByEmail(authDto.getEmail()).orElseThrow(() -> new UserIsNotRegisteredException(HttpStatus.UNAUTHORIZED));
+        User user = userDao.findByEmailAndStatus(authDto.getEmail(), refDao.findActiveUserStatus()).orElseThrow(() -> new UserIsNotRegisteredException(HttpStatus.UNAUTHORIZED));
         return JwtDto.builder()
                 .jwt(authService.generateJwt(user))
                 .build();
+    }
+
+    @Override
+    public JwtDto loginByGoogle(GoogleDto googleDto){
+        UserGoogleResponse userGoogleResponse = apiService.checkGoogleAccessToken(googleDto.getAccessToken());
+        JwtDto jwtDto = new JwtDto();
+        if(userGoogleResponse.getVerifiedEmail()){
+            userDao.findByEmailAndStatus(userGoogleResponse.getEmail(), refDao.findGoogleActiveStatus())
+                    .ifPresentOrElse(user -> {
+                        if(userGoogleResponse.getUserId().equals(user.getUserGoogleId())){
+                            jwtDto.setJwt(authService.generateJwt(user));
+                        }
+                    }, () -> jwtDto.setJwt(authService.generateJwt(registerGoogleUser(userGoogleResponse))));
+        }
+        return jwtDto;
     }
 
     @Override
@@ -115,5 +136,16 @@ public class UserServiceImpl implements UserService {
                 .userStatus(refDao.findNonActiveUserStatus())
                 .userRole(refDao.findUserRole())
                 .build();
+    }
+
+    private User registerGoogleUser(UserGoogleResponse userGoogleResponse){
+        Optional<User> save = userDao.save(User.builder()
+                .userEmail(userGoogleResponse.getEmail())
+                .actualDate(LocalDateTime.now())
+                .userGoogleId(userGoogleResponse.getUserId())
+                .userRole(refDao.findUserRole())
+                .userStatus(refDao.findGoogleActiveStatus())
+                .build());
+        return save.orElse(null);
     }
 }

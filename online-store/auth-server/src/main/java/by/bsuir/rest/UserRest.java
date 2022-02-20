@@ -1,6 +1,7 @@
 package by.bsuir.rest;
 
 import by.bsuir.entity.dto.AuthDto;
+import by.bsuir.entity.dto.GoogleDto;
 import by.bsuir.entity.dto.JwtDto;
 import by.bsuir.entity.dto.RegDto;
 import by.bsuir.service.UserService;
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
 
 import static by.bsuir.constant.ApiPath.*;
 
@@ -30,6 +33,11 @@ public class UserRest {
     public JwtDto login(@RequestBody AuthDto authDto) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authDto.getEmail(), authDto.getPassword()));
         return userService.login(authDto);
+    }
+
+    @PostMapping(USER_LOGIN_GOOGLE)
+    public JwtDto loginByGoogle(@RequestBody GoogleDto googleDto) throws IOException {
+        return userService.loginByGoogle(googleDto);
     }
 
     @GetMapping(USER_LOGOUT)

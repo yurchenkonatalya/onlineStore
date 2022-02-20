@@ -36,6 +36,11 @@ public class RefDaoImpl implements RefDao {
     }
 
     @Override
+    public UserStatus findGoogleActiveStatus() {
+        return userStatusRepo.findByStatusName(UserStatusRef.GOOGLE_ACTIVE.getName());
+    }
+
+    @Override
     public UserRole findUserRole() {
         return userRoleRepo.findByRoleName(UserRoleRef.USER.getName());
     }

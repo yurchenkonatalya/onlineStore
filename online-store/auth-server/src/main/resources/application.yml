@@ -10,7 +10,7 @@ spring:
     host: smtp.gmail.com
     port: 465
     username: psevdo.intellectual02@gmail.com
-    password: sijasecrssfkswme
+    password: ${emailPassword}
     protocol: smtps
 
 jwt:
@@ -23,5 +23,6 @@ logging:
     file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
   file:
     path: C:\Users\maxim\Repozinory\onlineStore\online-store\auth-server\src\main\resources\spring.log
-
-
+api:
+  google:
+    checkToken: https://www.googleapis.com/oauth2/v1/tokeninfo
