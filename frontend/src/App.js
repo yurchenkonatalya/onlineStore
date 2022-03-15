@@ -1,11 +1,11 @@
 import React  from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from "./component/Header";
-
+import Home from "./page/Home";
 
 function App() {
   return (
-    <Header/>
+
+    <Home></Home>
   );
 }
 
