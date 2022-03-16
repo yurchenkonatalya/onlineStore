@@ -3,11 +3,11 @@ import style from "../../../style/SendButton.module.css"
 
 import { Button } from "react-bootstrap";
 
-const SendButton = ({onClick, children}) =>{
+const SendButton = ({sendDataCallback, children}) =>{
 
 
 return(
-<Button variant="success" className={style.btnSend} onClick={onClick}>{children}</Button>
+<Button variant="success" className={style.btnSend} onClick={sendDataCallback}>{children}</Button>
 )
 
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {Navbar, Container, Row, Col, Form, Button } from "react-bootstrap";
 import Modal from "./Modal/Modal";
 import logo from '../img/logo.ico';
@@ -12,6 +12,7 @@ const Header = () =>{
  const regModal = useShowModal(false);
 
  const authModal = useShowModal(false);
+
 
  const [value, setValue] = useState()
   
