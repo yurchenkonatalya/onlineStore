@@ -3,8 +3,8 @@ package by.bsuir.exception;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
-public class TokenIsNotValid extends ResponseStatusException {
-    public TokenIsNotValid(HttpStatus status) {
+public class TokenIsNotValidException extends ResponseStatusException {
+    public TokenIsNotValidException(HttpStatus status) {
         super(status);
     }
 }

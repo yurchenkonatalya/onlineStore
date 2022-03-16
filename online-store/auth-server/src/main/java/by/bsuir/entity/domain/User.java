@@ -40,7 +40,7 @@ public class User {
     private LocalDateTime actualDate;
 
     @Column(name = "user_phone")
-    @Size(min = 9, max = 9)
+   // @Size(min = 9, max = 9)
     private String userPhone;
 
     @Column(name = "user_google_id")

@@ -5,10 +5,7 @@ import by.bsuir.dao.TokenDao;
 import by.bsuir.dao.UserDao;
 import by.bsuir.entity.domain.Token;
 import by.bsuir.entity.domain.User;
-import by.bsuir.entity.dto.AuthDto;
-import by.bsuir.entity.dto.GoogleDto;
-import by.bsuir.entity.dto.JwtDto;
-import by.bsuir.entity.dto.RegDto;
+import by.bsuir.entity.dto.*;
 import by.bsuir.entity.dto.api.UserGoogleResponse;
 import by.bsuir.exception.*;
 import by.bsuir.service.ApiService;
@@ -56,6 +53,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public JwtDto login(AuthDto authDto) {
+        Optional<User> byEmailAndStatus = userDao.findByEmailAndStatus(authDto.getEmail(), refDao.findNonActiveUserStatus());
+        if(byEmailAndStatus.isPresent()){
+            throw new EmailIsNotActivatedException(HttpStatus.FORBIDDEN);
+        }
         User user = userDao.findByEmailAndStatus(authDto.getEmail(), refDao.findActiveUserStatus()).orElseThrow(() -> new UserIsNotRegisteredException(HttpStatus.UNAUTHORIZED));
         return JwtDto.builder()
                 .jwt(authService.generateJwt(user))
@@ -96,7 +97,7 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public void registration(RegDto regDto) {
+    public RegResultDto registration(RegDto regDto) {
         userDao.findByEmailAndStatus(regDto.getEmail(), refDao.findNonActiveUserStatus()).ifPresent((user) -> {
             throw new SuchEmailAlsoRegistredException(HttpStatus.CONFLICT);
         });
@@ -115,7 +116,9 @@ public class UserServiceImpl implements UserService {
             String key = cryptoService.createActivationKey(user.get().getUserEmail());
             nonActiveEmails.put(key, user.get().getUserEmail());
             emailService.sendHtml(new ActivationMail(user.get().getUserEmail(), key));
+            return RegResultDto.builder().isSuccess(true).build();
         }
+        return RegResultDto.builder().isSuccess(false).build();
     }
 
     @Override

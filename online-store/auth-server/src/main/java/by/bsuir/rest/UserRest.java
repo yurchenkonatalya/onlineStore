@@ -1,9 +1,6 @@
 package by.bsuir.rest;
 
-import by.bsuir.entity.dto.AuthDto;
-import by.bsuir.entity.dto.GoogleDto;
-import by.bsuir.entity.dto.JwtDto;
-import by.bsuir.entity.dto.RegDto;
+import by.bsuir.entity.dto.*;
 import by.bsuir.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,8 +48,8 @@ public class UserRest {
     }
 
     @PostMapping(USER_REGISTRATION)
-    public void registration(@RequestBody RegDto regDto) {
-        userService.registration(regDto);
+    public RegResultDto registration(@RequestBody RegDto regDto) {
+        return userService.registration(regDto);
     }
 
     @GetMapping(EMAIL_ACTIVATION)
