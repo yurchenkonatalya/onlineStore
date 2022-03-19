@@ -1,11 +1,10 @@
-import React,{useState} from "react";
-import style from "../../../style/Input.module.css"
+import React from "react";
+import style from "./Input.module.css"
 
-const Input = ({callback, placeholder}) =>{
+const Input = ({callback, ...props}) =>{
 
 return(
-    <input type="email" className={[style.input, "form-control"].join(' ')} 
-    placeholder={placeholder} autoComplete="off" onChange={e => callback(e.currentTarget.value)}/>
+    <input  className={[style.input, "form-control"].join(' ')}  onChange={e => callback(e.currentTarget.value)} {...props}/>
 )
 
 }

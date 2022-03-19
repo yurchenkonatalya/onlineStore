@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {Navbar, Container, Row, Col, Form, Button } from "react-bootstrap";
-import Modal from "./Modal/Modal";
+import Modal from "./UI/Modal/Modal";
 import logo from '../img/logo.ico';
 import useShowModal from "../hook/useShowModal";
 import ModalButton from "./UI/Button/ModalButton";
@@ -8,13 +8,11 @@ import RegForm from "./Form/RegForm";
 
 const Header = () =>{
 
- // const [modalReg, setModalReg] = useState(false);
  const regModal = useShowModal(false);
 
  const authModal = useShowModal(false);
+ 
 
-
- const [value, setValue] = useState()
   
     return(
       <div>

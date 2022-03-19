@@ -1,5 +1,5 @@
 import React from "react";
-import style from '../../style/Modal.module.css'
+import style from './Modal.module.css'
 
 const Modal = ({children,  visible, setVisible}) =>{
     const rootClasses = [style.main]

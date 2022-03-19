@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../../../style/SendButton.module.css"
+import style from "./SendButton.module.css"
 
 import { Button } from "react-bootstrap";
 

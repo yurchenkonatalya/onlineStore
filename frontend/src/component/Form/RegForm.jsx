@@ -1,10 +1,13 @@
 import React,{useEffect, useState} from "react";
-import style from '../../style/Input.module.css'
+import style from './RegForm.module.css'
 import Input from "../UI/Input/Input";
 import SendButton from "../UI/Button/SendButton";
 import PhoneInput from "react-phone-input-2";
-import axios from "axios";
-import SuccessAlert from "../SuccessAlert";
+import SuccessAlert from "../UI/Alert/SuccessAlert";
+import ErrorAlert from "../UI/Alert/ErrorAlert";
+import ApiService from "../../API/ApiService";
+import useLoading from "../../hook/useLoading";
+import Loader from "../UI/Loader/Loader";
 
 const RegForm = () =>{
 
@@ -23,21 +26,16 @@ const RegForm = () =>{
         }
     }, [successAlert])
 
-    const sendRegistration = () =>{
-        axios.post("http://localhost:8100/api/users/registration",
-        {
-            "email": email,
-            "password": password,
-            "repeatPassword": repeatPassword,
-            "phoneNumber": phoneNumber
-        }
-        ).then(resp =>{
-            const result = resp.data.isSuccess;
-            if(result){
-                setSuccessAlert(true)
-            }
-        })
-    }
+    const tryRegistration = useLoading(async () => {
+        await ApiService.registration(email, password, repeatPassword, phoneNumber)
+         .then(resp =>{
+             const result = resp.data.isSuccess;
+             if(result){
+                 setSuccessAlert(true)
+             }
+         })
+    });
+
 
   
 return (
@@ -49,9 +47,9 @@ return (
 
 Регистрация
 </blockquote>
-      <Input placeholder="email" callback = {setEmail}/>
-      <Input placeholder="password" callback = {setPassword}/>
-      <Input placeholder="repeat password" callback = {setRepeatPassword}/>
+      <Input placeholder="email" callback = {setEmail} type="email"/>
+      <Input placeholder="password" callback = {setPassword} type="password"/>
+      <Input placeholder="repeat password" callback = {setRepeatPassword} type="password"/>
 
       <PhoneInput
       country={"by"}
@@ -59,12 +57,24 @@ return (
       specialLabel={""}
       onChange={e => seetPhoneNumber(e)}
       />
-      <SendButton sendDataCallback={sendRegistration}>Зарегистрироваться</SendButton>
+      <SendButton sendDataCallback={() => tryRegistration.loadData()}>Зарегистрироваться</SendButton>
     
       </form>
       {
-    successAlert ? (<SuccessAlert></SuccessAlert>) : ""
- }
+          tryRegistration.isLoading 
+          ? <Loader  style={{position:"absolute", left:"48%", top:"15%"}}></Loader>
+          : ""
+      }
+      {
+    successAlert 
+    ? <SuccessAlert style={{marginTop:"20px"}}></SuccessAlert>
+    : ""
+        }
+        {
+    tryRegistration.error 
+    ? <ErrorAlert style={{marginTop:"20px"}}></ErrorAlert>
+    : ""
+        }
       </div>
 
 )
