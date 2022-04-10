@@ -9,6 +9,9 @@ public interface RefDao {
     UserStatus findNonActiveUserStatus();
     UserStatus findActiveUserStatus();
     UserStatus findBannedUserStatus();
+    UserStatus findGoogleActiveStatus();
     UserRole findUserRole();
     UserRole findAdminUserRole();
+
+    void synchronizeDefine();
 }

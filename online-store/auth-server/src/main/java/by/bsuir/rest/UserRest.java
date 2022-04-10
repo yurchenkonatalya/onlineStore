@@ -1,14 +1,15 @@
 package by.bsuir.rest;
 
-import by.bsuir.entity.dto.AuthDto;
-import by.bsuir.entity.dto.JwtDto;
-import by.bsuir.entity.dto.RegDto;
+import by.bsuir.entity.dto.*;
 import by.bsuir.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.File;
+import java.io.IOException;
 
 import static by.bsuir.constant.ApiPath.*;
 
@@ -32,6 +33,11 @@ public class UserRest {
         return userService.login(authDto);
     }
 
+    @PostMapping(USER_LOGIN_GOOGLE)
+    public JwtDto loginByGoogle(@RequestBody GoogleDto googleDto) throws IOException {
+        return userService.loginByGoogle(googleDto);
+    }
+
     @GetMapping(USER_LOGOUT)
     public void logout(@RequestHeader(name = AUTHORIZATION) String token) {
         userService.logout(token);
@@ -43,8 +49,8 @@ public class UserRest {
     }
 
     @PostMapping(USER_REGISTRATION)
-    public void registration(@RequestBody RegDto regDto) {
-        userService.registration(regDto);
+    public RegResultDto registration(@RequestBody RegDto regDto) {
+        return userService.registration(regDto);
     }
 
     @GetMapping(EMAIL_ACTIVATION)

@@ -47,6 +47,7 @@ public class AuthServiceImpl implements AuthService {
         Map<String, String> claims = new HashMap<>();
         claims.put("role", user.getUserRole().getRoleName());
         claims.put("email", user.getUserEmail());
+        claims.put("google_id", user.getUserGoogleId());
         return jwtService.generateToken(user.getUserId(), claims, Long.parseLong(expiration));
     }
 

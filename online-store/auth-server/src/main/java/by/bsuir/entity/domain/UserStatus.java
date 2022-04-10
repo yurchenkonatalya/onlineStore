@@ -18,15 +18,16 @@ import javax.validation.constraints.NotNull;
 public class UserStatus {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_status_id")
+    @NotNull
+
     @ToString.Include
     @EqualsAndHashCode.Include
-    private Integer statusId;
+    private Integer userStatusId;
 
     @Column(name = "user_status_name")
     @ToString.Include
     @EqualsAndHashCode.Include
     @NotNull
-    private String statusName;
+    private String userStatusName;
 }

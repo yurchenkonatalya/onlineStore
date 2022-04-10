@@ -38,12 +38,12 @@ public class SecurityUser implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return userStatus.getStatusId().equals(UserStatusRef.ACTIVE.getId());
+        return userStatus.getUserStatusId().equals(UserStatusRef.ACTIVE.getId());
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return !userStatus.getStatusId().equals(UserStatusRef.BANNED.getId());
+        return !userStatus.getUserStatusId().equals(UserStatusRef.BANNED.getId());
     }
 
     @Override
@@ -53,6 +53,6 @@ public class SecurityUser implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return userStatus.getStatusId().equals(UserStatusRef.ACTIVE.getId());
+        return userStatus.getUserStatusId().equals(UserStatusRef.ACTIVE.getId());
     }
 }

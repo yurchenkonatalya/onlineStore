@@ -1,5 +1,6 @@
 package by.bsuir.security;
 
+import by.bsuir.dao.RefDao;
 import by.bsuir.entity.domain.User;
 import by.bsuir.entity.domain.UserRole;
 import by.bsuir.repo.UserRepo;
@@ -19,15 +20,17 @@ import java.util.Optional;
 public class SecurityUserService implements UserDetailsService {
 
     private final UserRepo userRepo;
+    private final RefDao refDao;
 
     @Autowired
-    public SecurityUserService(UserRepo userRepo){
+    public SecurityUserService(UserRepo userRepo, RefDao refDao){
         this.userRepo = userRepo;
+        this.refDao = refDao;
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<User> userOptional = userRepo.findByUserEmail(username);
+        Optional<User> userOptional = userRepo.findByUserEmailAndUserStatus(username, refDao.findActiveUserStatus());
         if(userOptional.isEmpty()){
             throw new UsernameNotFoundException("Account is not exists");
         }

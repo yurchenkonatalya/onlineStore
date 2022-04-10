@@ -13,7 +13,8 @@ import java.util.stream.Collectors;
 public enum UserStatusRef {
     NON_ACTIVE(1, "NON_ACTIVE"),
     ACTIVE(2, "ACTIVE"),
-    BANNED(3, "BANNED");
+    BANNED(3, "BANNED"),
+    GOOGLE_ACTIVE(4, "GOOGLE_ACTIVE");
 
     private Integer id;
     private String name;
@@ -21,8 +22,8 @@ public enum UserStatusRef {
     public static List<UserStatus> getAll(){
         return Arrays.stream(UserStatusRef.values())
                 .map(userStatusRef -> UserStatus.builder()
-                        .statusId(userStatusRef.getId())
-                        .statusName(userStatusRef.getName())
+                        .userStatusId(userStatusRef.getId())
+                        .userStatusName(userStatusRef.getName())
                         .build()).collect(Collectors.toList());
     }
 

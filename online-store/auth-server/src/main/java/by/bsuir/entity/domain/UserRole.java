@@ -17,10 +17,10 @@ import javax.validation.constraints.NotNull;
 public class UserRole {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "role_id")
     @ToString.Include
     @EqualsAndHashCode.Include
+    @NotNull
     private Integer roleId;
 
     @Column(name = "role_name")
