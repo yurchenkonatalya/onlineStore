@@ -5,6 +5,7 @@ import logo from '../img/logo.ico';
 import useShowModal from "../hook/useShowModal";
 import ModalButton from "./UI/Button/ModalButton";
 import RegForm from "./Form/RegForm";
+import LoginForm from "./Form/LoginForm";
 
 const Header = () =>{
 
@@ -51,9 +52,8 @@ const Header = () =>{
     <Modal className="w-100" visible={regModal.isVisible} setVisible={() => regModal.show(false)}>
     <RegForm/>
       </Modal>
-    <Modal visible={authModal.isVisible} setVisible={() => authModal.show(false)}>zgfjlsdxkgbs
-    dgbsdgbjsdxzgbdx
-    gbdxg</Modal>
+    <Modal visible={authModal.isVisible} setVisible={() => authModal.show(false)}>
+    <LoginForm></LoginForm></Modal>
     </div>
   )
 }
