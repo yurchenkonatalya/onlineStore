@@ -98,6 +98,7 @@ public class UserServiceImpl implements UserService {
     @Transactional
     @Override
     public RegResultDto registration(RegDto regDto) {
+        log.info("Request for registration endpoint");
         userDao.findByEmailAndStatus(regDto.getEmail(), refDao.findNonActiveUserStatus()).ifPresent((user) -> {
             throw new SuchEmailAlsoRegistredException(HttpStatus.CONFLICT);
         });
