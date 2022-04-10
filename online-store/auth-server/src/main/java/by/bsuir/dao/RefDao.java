@@ -12,4 +12,6 @@ public interface RefDao {
     UserStatus findGoogleActiveStatus();
     UserRole findUserRole();
     UserRole findAdminUserRole();
+
+    void synchronizeDefine();
 }

@@ -22,8 +22,8 @@ public enum UserStatusRef {
     public static List<UserStatus> getAll(){
         return Arrays.stream(UserStatusRef.values())
                 .map(userStatusRef -> UserStatus.builder()
-                        .statusId(userStatusRef.getId())
-                        .statusName(userStatusRef.getName())
+                        .userStatusId(userStatusRef.getId())
+                        .userStatusName(userStatusRef.getName())
                         .build()).collect(Collectors.toList());
     }
 
