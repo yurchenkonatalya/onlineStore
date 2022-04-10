@@ -983,3 +983,6 @@ java.lang.NullPointerException: null
 2022-04-10 13:55:10 [http-nio-8100-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@234ad8f8 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
 2022-04-10 13:55:10 [http-nio-8100-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@7cb89f6b (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
 2022-04-10 13:55:10 [http-nio-8100-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@1f68f794 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2022-04-10 14:06:04 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-10 14:06:04 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-04-10 14:06:04 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
